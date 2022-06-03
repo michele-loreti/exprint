@@ -15,49 +15,9 @@ import java.util.Objects;
 /**
  * Instances of this class are used to model the sum of two expressions.
  */
-public class SumExpression implements Expression {
+public record SumExpression(Expression leftArgument,
+                            Expression rightArgument) implements Expression {
 
-    private final Expression leftArgument;
-    private final Expression rightArgument;
 
-    /**
-     * Creates a new expression that sums the two given arguments.
-     * A {@link NullPointerException} is thrown if one of the two parameters is <code>null</code>.
-     *
-     * @param leftArgument first argument in the sum.
-     * @param rightArgument second argument in the sum.
-     */
-    public SumExpression(Expression leftArgument, Expression rightArgument) {
-        this.leftArgument = Objects.requireNonNull(leftArgument);
-        this.rightArgument = Objects.requireNonNull(rightArgument);
-    }
 
-    /**
-     * Returns the first argument in the sum.
-     * @return the first argument in the sum.
-     */
-    public Expression getLeftArgument() {
-        return leftArgument;
-    }
-
-    /**
-     * Returns the second argument in the sum.
-     * @return the second argument in the sum.
-     */
-    public Expression getRightArgument() {
-        return rightArgument;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SumExpression that = (SumExpression) o;
-        return getLeftArgument().equals(that.getLeftArgument()) && getRightArgument().equals(that.getRightArgument());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getLeftArgument(), getRightArgument());
-    }
 }

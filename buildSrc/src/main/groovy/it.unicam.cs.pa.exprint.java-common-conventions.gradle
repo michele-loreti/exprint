@@ -21,6 +21,17 @@ dependencies {
     }
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+
+compileJava {
+    options.compilerArgs += ["--enable-preview"]
+}
+test {
+    jvmArgs '--enable-preview'
+}
+
 testing {
     suites {
         // Configure the built-in test suite

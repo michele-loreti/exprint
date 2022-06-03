@@ -10,9 +10,12 @@
 
 package it.unicam.cs.pa.exprint.core;
 
+import java.util.Map;
+
 /**
  * This interface is used to model a generic expression.
  */
-public interface Expression {
+public sealed interface Expression permits LiteralExpression, DiffExpression, DivExpression, MulExpression, SumExpression, VarExpression {
+
 
 }

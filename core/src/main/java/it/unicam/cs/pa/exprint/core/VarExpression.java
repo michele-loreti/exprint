@@ -15,9 +15,7 @@ import java.util.Objects;
 /**
  * Instances of this class are used to model an expression containing a variable.
  */
-public class VarExpression implements Expression {
-
-    private final String variable;
+public record VarExpression(String variable) implements Expression {
 
     /**
      * Creates an expression consisting of a single variable.
@@ -28,31 +26,6 @@ public class VarExpression implements Expression {
         this.variable = Objects.requireNonNull(variable);
     }
 
-    /**
-     * Returns the name of the variable in the expression.
-     * @return the name of the variable in the expression.
-     */
-    public String getVariable() {
-        return variable;
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        VarExpression that = (VarExpression) o;
-        return getVariable().equals(that.getVariable());
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getVariable());
-    }
-
-    @Override
-    public String toString() {
-        return "VarExpression{" +
-                "variable='" + variable + '\'' +
-                '}';
-    }
 }

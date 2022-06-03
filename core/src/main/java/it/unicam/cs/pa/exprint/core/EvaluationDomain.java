@@ -10,13 +10,17 @@
 
 package it.unicam.cs.pa.exprint.core;
 
-import java.util.Objects;
+public interface EvaluationDomain<T> {
 
-/**
- * Instances of this class are used to model the multiplication between two expressions.
- */
-public record DivExpression(Expression leftArgument,
-                            Expression rightArgument) implements Expression {
+    T evalLiteral(Number n);
 
+    T evalSum(T arg1, T arg2);
 
+    T evalDiff(T arg1, T arg2);
+
+    T evalMul(T arg1, T arg2);
+
+    T evalDiv(T arg1, T arg2);
+
+    T valueForUndefinedVariables();
 }

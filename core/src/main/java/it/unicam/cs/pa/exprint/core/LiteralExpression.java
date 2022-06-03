@@ -13,10 +13,9 @@ package it.unicam.cs.pa.exprint.core;
 import java.util.Objects;
 
 /**
- * Instances of this class are used to model the multiplication between two expressions.
+ * Instances of this class are used to model an expression consisting of a single litteral.
  */
-public record DivExpression(Expression leftArgument,
-                            Expression rightArgument) implements Expression {
+public record LiteralExpression(Number value) implements Expression {
 
 
 }
